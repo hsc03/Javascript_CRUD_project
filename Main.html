@@ -7,15 +7,15 @@
 <body>
 	<h1>먹고싶은 음식</h1>
 
-	<form>
+	<form onsubmit="event.preventDefault();operate();">
 		<label>음식이름</label>
 		<br>
-		<input type="text" size="7">
-		</label>
+		<input type="text" size="7" id="foodName">
+		
 		<input type="submit" value="작성">
 	</form>
 	<br>
-	<table>
+	<table id="foodList">
 		<thead>
 			<tr>
 				<th>음식들</th>
@@ -25,5 +25,7 @@
 			
 		</tbody>
 	</table>
+
+	<script src="script.js"></script>
 </body>
 </html>
