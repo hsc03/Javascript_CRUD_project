@@ -18,6 +18,8 @@ function addNewData(data)             // 행을 추가하여 저장된 입력값
 	var newLine = table.insertRow(table.length);
 	cell1 = newLine.insertCell(0);
 	cell1.innerHTML = data.foodName;
+	cell2 = newLine.insertCell(1);
+	cell2.innerHTML = `<input type="button"  value="수정">`;
 }
 
 function resetData()				// 입력창 초기화
