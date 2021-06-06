@@ -3,12 +3,16 @@
 <head>
 	<meta charset="utf-8">
 	<title>CRUD</title>
+	<style type="text/css">
+		.hide {display: none;}
+	</style>
 </head>
 <body>
 	<h1>먹고싶은 음식</h1>
 
 	<form onsubmit="event.preventDefault();operate();">
 		<label>음식이름</label>
+		<label class="hide" id="error">다시 입력해주세요.</label>
 		<br>
 		<input type="text" size="7" id="foodName">
 		

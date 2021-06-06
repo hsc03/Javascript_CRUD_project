@@ -1,17 +1,20 @@
 var selectedLine = null;
 
 function operate()          //입력폼의 값을 가져와 변수에 저장 후 추가or수정 함수를 실행 후 입력창 초기화
-{		                        
-	var foodData = readData();
-	if(selectedLine == null)
-	{
-		addNewData(foodData);
-	}else
-	{
-		updateData(foodData);
-	}
-	resetData();	
-}
+{		       
+	if(errorCheck())
+	{                 
+		var foodData = readData();
+		if(selectedLine == null)
+		{
+			addNewData(foodData);
+		}else
+		{
+			updateData(foodData);
+		}
+		resetData();
+	}	
+}	
 
 function readData()                  // 입력창에 입력된 값을 가져와 저장
 {
@@ -60,4 +63,19 @@ function clickDelete(td)					// 삭제 확인 메시지 출력 후 해당 열의
 		document.getElementById("foodList").deleteRow(line.rowIndex);
 		resetData();
 	}
+}
+
+function errorCheck()						// 입력 창에 값이 없을 경우 경고문구 출력
+{
+	var writing_check = true;
+	if(document.getElementById("foodName").value == "")
+	{
+		writing_check = false;
+		document.getElementById("error").classList.remove("hide");
+	}else {
+		writing_check = true;
+		if(!document.getElementById("error").classList.contains("hide"))
+			document.getElementById("error").classList.add("hide");
+	}
+	return writing_check;
 }
