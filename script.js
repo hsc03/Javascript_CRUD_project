@@ -79,3 +79,30 @@ function errorCheck()						// 입력 창에 값이 없을 경우 경고문구 �
 	}
 	return writing_check;
 }
+
+                                      /*입력값을 대문자로 모두 바꿈 (영어입력값의 경우)
+                                        tr변수에 테이블속 tr 태그 획득
+                                        td변수에 tr태그의 td 태그 획득 (tr의 갯수(길이만큼))
+                                        tdata변수에 해당 td값을 넣고 tdata가 만약 입력값을 포함하면
+                                        보이게끔 설정하고 포함하지 않는다면 안보이게 설정  */
+function search(){
+  var search_input = document.getElementById("search_foodName");
+  var table = document.getElementById("foodList");
+  filter = search_input.value.toUpperCase();
+  var tr = document.getElementById("foodList").getElementsByTagName('tr');
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td") ; 
+    for(j=0 ; j<td.length ; j++)
+    {
+      let tdata = td[j] ;
+      if (tdata) {
+        if (tdata.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+          break ; 
+        } else {
+          tr[i].style.display = "none";
+        }
+      } 
+    }
+  }
+}
