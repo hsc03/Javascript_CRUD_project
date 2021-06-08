@@ -115,4 +115,15 @@ function picked(td)										// 찜 목록 추가
   var newPickedLine = pickedTable.insertRow(pickedTable.length);
   pickedCell1 = newPickedLine.insertCell(0);
   pickedCell1.innerHTML = pickedLine.cells[0].innerHTML; 
+  pickedCell2 = newPickedLine.insertCell(1);
+  pickedCell2.innerHTML = '<input type="button" onclick="pickedDelete(this)" value="삭제">'
+}
+
+function pickedDelete(td)								// 찜 목록에서 삭제 기능 추가
+{
+	if(confirm("찜 목록에서 삭제하시겠습니까?"))
+	{
+		pickedLine = td.parentElement.parentElement;
+		document.getElementById("pickedList").deleteRow(pickedLine.rowIndex);
+	}
 }
