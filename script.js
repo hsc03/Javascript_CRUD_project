@@ -30,9 +30,9 @@ function addNewData(data)             // 행을 추가하여 저장된 입력값
 	cell1 = newLine.insertCell(0);
 	cell1.innerHTML = data.foodName;
 	cell2 = newLine.insertCell(1);
-	cell2.innerHTML = `<input type="button" onclick="clickEdit(this)" value="수정">
-						<input type="button" onclick="clickDelete(this)" value="삭제">
-						<input type="button" onclick="picked(this)" value="찜">`;
+	cell2.innerHTML = `<input type="image" src="edit.png" width="30px" onclick="clickEdit(this)" value="수정">
+						<input type="image" src="delete.png" width="30px" onclick="clickDelete(this)" value="삭제">
+						<input type="image" src="picked.png" width="30px" onclick="picked(this)" value="찜">`;
 }
 
 function resetData()				// 입력창 초기화
@@ -116,7 +116,7 @@ function picked(td)										// 찜 목록 추가
   pickedCell1 = newPickedLine.insertCell(0);
   pickedCell1.innerHTML = pickedLine.cells[0].innerHTML; 
   pickedCell2 = newPickedLine.insertCell(1);
-  pickedCell2.innerHTML = '<input type="button" onclick="pickedDelete(this)" value="삭제">'
+  pickedCell2.innerHTML = '<input type="image" src="delete.png" width="30px" onclick="pickedDelete(this)" value="삭제">'
 }
 
 function pickedDelete(td)								// 찜 목록에서 삭제 기능 추가
